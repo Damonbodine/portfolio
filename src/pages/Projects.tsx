@@ -5,70 +5,71 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>('all');
 
-  // Mock data for Gauntlet.ai projects - replace with real data
   const projects: Project[] = [
     {
       id: '1',
-      title: 'Risk Management Dashboard',
-      description: 'Real-time portfolio risk analytics and monitoring system',
-      longDescription: 'Built a comprehensive risk management dashboard that provides real-time analytics for portfolio monitoring. Features include risk metrics visualization, automated alerts, and comprehensive reporting capabilities. The system processes millions of data points daily to provide actionable insights.',
-      technologies: ['React', 'TypeScript', 'D3.js', 'Node.js', 'PostgreSQL'],
+      title: 'WordWise AI',
+      description: 'A Grammarly clone with voice coaching, editing, and AI agents',
+      longDescription: 'Built a comprehensive writing assistant platform featuring a voice coaching agent and voice editing agent. The application helps users improve their writing through AI-powered suggestions, real-time voice feedback, and interactive coaching sessions. Includes advanced grammar checking, style recommendations, and personalized writing improvement plans.',
+      technologies: ['React', 'Next.js', 'Node.js', 'Python', 'WebSockets'],
       imageUrl: '/api/placeholder/600/400',
-      demoUrl: 'https://demo.gauntlet.ai',
-      githubUrl: '',
+      demoUrl: 'https://x.com/damonbodine/status/1936933655072653771',
       featured: true
     },
     {
       id: '2',
-      title: 'Automated Trading Engine',
-      description: 'High-frequency trading system with advanced algorithmic strategies',
-      longDescription: 'Developed a sophisticated automated trading engine capable of executing high-frequency trades with microsecond latency. Implemented advanced algorithmic strategies including market making, arbitrage, and momentum trading with comprehensive backtesting capabilities.',
-      technologies: ['Python', 'C++', 'Redis', 'Kafka', 'Docker'],
+      title: 'SnapConnect',
+      description: 'Mobile social network app with computer vision and fitness coaching',
+      longDescription: 'Developed a comprehensive mobile application that combines social networking features similar to Snapchat with advanced computer vision technology. Features include a voice-powered fitness coach that provides real-time workout guidance, social sharing capabilities, and a robust social network for connecting with friends and fitness enthusiasts.',
+      technologies: ['React Native', 'Computer Vision', 'Voice AI', 'Social Network APIs'],
       imageUrl: '/api/placeholder/600/400',
       featured: true
     },
     {
       id: '3',
-      title: 'Market Data Pipeline',
-      description: 'Scalable real-time market data ingestion and processing system',
-      longDescription: 'Built a highly scalable market data pipeline that ingests and processes real-time market data from multiple exchanges. The system handles millions of messages per second with fault tolerance and ensures data consistency across distributed components.',
-      technologies: ['Kafka', 'Apache Spark', 'Python', 'Kubernetes', 'TimescaleDB'],
+      title: 'LifeOps',
+      description: 'Personal life operating system with workflow automation',
+      longDescription: 'Created a comprehensive personal life management system that helps users build their ideal day through Wangchain workflows integrated with Google Calendar. Features include intelligent friend recommendation based on communication patterns, automated social scheduling based on availability and weekly goals, and comprehensive life optimization tools.',
+      technologies: ['Express', 'Electron', 'Google Calendar API', 'Workflow Automation'],
       imageUrl: '/api/placeholder/600/400',
+      demoUrl: 'https://x.com/damonbodine/status/1940913440601919847',
       featured: true
     },
     {
       id: '4',
-      title: 'Portfolio Optimization Tool',
-      description: 'Advanced portfolio optimization using machine learning algorithms',
-      longDescription: 'Created an advanced portfolio optimization tool that uses machine learning algorithms to maximize returns while minimizing risk. Features include Monte Carlo simulations, factor modeling, and real-time rebalancing recommendations.',
-      technologies: ['Python', 'TensorFlow', 'NumPy', 'Pandas', 'React'],
+      title: 'AgentPro',
+      description: 'Real estate automation platform for agents',
+      longDescription: 'Built a comprehensive real estate website designed to help agents save time through intelligent automation. Features include automated client onboarding workflows, AI-powered contract negotiation assistance, and automated inspection report analysis. The platform streamlines common real estate tasks and improves agent productivity.',
+      technologies: ['React', 'Node.js', 'AI Automation', 'Document Processing'],
       imageUrl: '/api/placeholder/600/400',
       featured: false
     },
     {
       id: '5',
-      title: 'Compliance Monitoring System',
-      description: 'Automated compliance checking and regulatory reporting platform',
-      longDescription: 'Developed a comprehensive compliance monitoring system that automatically checks trading activities against regulatory requirements. Features include real-time monitoring, automated reporting, and audit trail management.',
-      technologies: ['Java', 'Spring Boot', 'MongoDB', 'Elasticsearch', 'Angular'],
+      title: 'Budget Royale',
+      description: 'Financial literacy game with mock trading and educational content',
+      longDescription: 'Developed an engaging financial literacy game designed to teach students fundamental financial concepts through interactive gameplay and mock stock trading. Features include 3D game environments, simulated trading experiences, educational articles, and gamified learning modules that make financial education accessible and fun.',
+      technologies: ['Phaser 3D', 'React', 'Next.js', 'Trading APIs', 'Educational Content Management'],
       imageUrl: '/api/placeholder/600/400',
+      demoUrl: 'https://x.com/damonbodine/status/1947099366809907360',
       featured: false
     },
     {
       id: '6',
-      title: 'Backtesting Framework',
-      description: 'Comprehensive backtesting framework for trading strategies',
-      longDescription: 'Built a robust backtesting framework that allows quantitative researchers to test trading strategies against historical data. Features include performance analytics, risk metrics, and scenario analysis with support for multiple asset classes.',
-      technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Jupyter'],
+      title: 'Legacy Project Week',
+      description: 'SuiteCRM reinvention with AI features for attorney offices',
+      longDescription: 'Reinvented SuiteCRM, a legacy enterprise codebase with over 2 million lines of code, by building modern AI features specifically designed for small attorney offices. The project involved modernizing existing functionality while adding intelligent automation, document processing, and case management features tailored to legal practices.',
+      technologies: ['PHP', 'JavaScript', 'AI Integration', 'Legacy System Modernization', 'Legal Tech'],
       imageUrl: '/api/placeholder/600/400',
+      demoUrl: 'https://x.com/damonbodine/status/1949589504580522437',
       featured: false
     },
     {
       id: '7',
-      title: 'Client Portal',
-      description: 'Secure client portal for portfolio management and reporting',
-      longDescription: 'Developed a secure client portal that provides institutional clients with real-time access to their portfolio performance, risk metrics, and detailed reporting. Features include custom dashboards, automated report generation, and secure document sharing.',
-      technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'AWS'],
+      title: 'Renters Mentor',
+      description: 'Financial literacy app for rent negotiation with AI coaching',
+      longDescription: 'Built a specialized financial literacy application designed to help renters negotiate with their landlords effectively. Features include an intelligent chatbot for guidance, a comprehensive vector database that analyzes rental patterns across the United States based on user location, and a voice coaching agent that helps users practice and simulate negotiation conversations.',
+      technologies: ['React', 'Vector Database', 'Chatbot AI', 'Voice Coaching', 'Rental Market Analytics'],
       imageUrl: '/api/placeholder/600/400',
       featured: false
     }
@@ -97,8 +98,8 @@ const Projects = () => {
             My <span className="gradient-text">Projects</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A collection of projects I've worked on during my time at Gauntlet.ai, 
-            showcasing expertise in fintech, trading systems, and data engineering.
+            A collection of AI-powered applications I've built, showcasing expertise in 
+            full-stack development, voice technology, computer vision, and intelligent automation.
           </p>
         </div>
       </section>
