@@ -1,57 +1,6 @@
-import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import type { VideoRecording } from '../types';
 
 const Home = () => {
-  const [recording, setRecording] = useState<VideoRecording>({
-    blob: null,
-    url: null,
-    isRecording: false
-  });
-  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const startRecording = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: true, 
-        audio: true 
-      });
-      
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      
-      const chunks: BlobPart[] = [];
-      
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          chunks.push(event.data);
-        }
-      };
-      
-      mediaRecorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(blob);
-        setRecording(prev => ({ ...prev, blob, url, isRecording: false }));
-        stream.getTracks().forEach(track => track.stop());
-      };
-      
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
-      
-      mediaRecorder.start();
-      setRecording(prev => ({ ...prev, isRecording: true }));
-    } catch (error) {
-      console.error('Error starting recording:', error);
-    }
-  };
-
-  const stopRecording = () => {
-    if (mediaRecorderRef.current && recording.isRecording) {
-      mediaRecorderRef.current.stop();
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
@@ -81,84 +30,24 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Video Recording Section */}
+            {/* Featured Video */}
             <div className="bg-white rounded-2xl shadow-xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Record a Personal Message
+                Featured Demo
               </h3>
               
-              {!recording.url ? (
-                <div className="space-y-4">
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    muted
-                    className="w-full rounded-lg bg-gray-100"
-                    style={{ display: recording.isRecording ? 'block' : 'none' }}
-                  />
-                  
-                  {!recording.isRecording && (
-                    <div className="bg-gray-100 rounded-lg aspect-video flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                          </svg>
-                        </div>
-                        <p className="text-gray-600">Click to start recording</p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="flex justify-center">
-                    {!recording.isRecording ? (
-                      <button
-                        onClick={startRecording}
-                        className="btn-primary flex items-center gap-2"
-                      >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="8"/>
-                        </svg>
-                        Start Recording
-                      </button>
-                    ) : (
-                      <button
-                        onClick={stopRecording}
-                        className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2"
-                      >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                          <rect x="6" y="6" width="12" height="12"/>
-                        </svg>
-                        Stop Recording
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  <video
-                    src={recording.url}
-                    controls
-                    className="w-full rounded-lg"
-                  />
-                  <div className="flex gap-2">
-                    <a
-                      href={recording.url}
-                      download="personal-message.webm"
-                      className="btn-primary flex-1 text-center"
-                    >
-                      Download
-                    </a>
-                    <button
-                      onClick={() => setRecording({ blob: null, url: null, isRecording: false })}
-                      className="btn-secondary flex-1"
-                    >
-                      Record Again
-                    </button>
-                  </div>
-                </div>
-              )}
+              <div className="aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/v5cZMHIHQh0"
+                  title="Featured Demo Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
