@@ -17,9 +17,7 @@ const Home = () => {
                 </span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                AI Engineer driven to push the world forward. Proven leader with 19+ years of experience 
-                in high-stakes industries, combining sales expertise with cutting-edge AI development 
-                at Gauntlet.ai.
+                AI Engineer driven to push the world forward.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/projects" className="btn-primary text-center">
