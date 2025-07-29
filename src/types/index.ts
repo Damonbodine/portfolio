@@ -5,6 +5,8 @@ export interface Project {
   longDescription: string;
   technologies: string[];
   imageUrl: string;
+  videoEmbed?: string;
+  gifUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
   featured: boolean;

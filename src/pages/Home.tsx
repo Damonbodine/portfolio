@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import TestimonialsCarousel from '../components/TestimonialsCarousel';
 
 const Home = () => {
 
@@ -104,6 +105,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Carousel */}
+      <TestimonialsCarousel />
     </div>
   );
 };

@@ -13,6 +13,7 @@ const Projects = () => {
       longDescription: 'Built a comprehensive writing assistant platform featuring voice coaching agents and voice editing capabilities. The application uses WebSockets for real-time communication, voice agents for interactive coaching, and low-latency inference tools for instant AI-powered suggestions. Includes advanced grammar checking, style recommendations, and personalized writing improvement plans with real-time voice feedback.',
       technologies: ['React', 'Next.js', 'Node.js', 'Python', 'WebSockets', 'Voice Agents', 'Low Latency Inference'],
       imageUrl: '/wordwiseai.png',
+      videoEmbed: '<div style="position: relative; padding-bottom: 65.01809408926417%; height: 0;"><iframe src="https://www.loom.com/embed/38d51d85897f44ddb5009bb2e3961e6f?sid=5d5d2232-f49d-49a2-9e2d-b8a2ac09365b" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
       demoUrl: 'https://x.com/damonbodine/status/1936933655072653771',
       featured: true
     },
@@ -23,6 +24,7 @@ const Projects = () => {
       longDescription: 'Developed a comprehensive mobile application that combines social networking features similar to Snapchat with advanced computer vision and AR technologies. Features include voice agents for fitness coaching, real-time messaging capabilities, AR-powered social interactions, and seamless integration with the Apple Developer Ecosystem. The app provides real-time workout guidance, social sharing capabilities, and a robust social network for connecting with friends and fitness enthusiasts.',
       technologies: ['React Native', 'Computer Vision', 'Voice Agents', 'AR Technologies', 'Real-time Messaging', 'Apple Developer Ecosystem'],
       imageUrl: '/snapconnect.png',
+      videoEmbed: '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.youtube.com/embed/d1syaTicwgc?si=PoIfNoNyoDUsdQ5u" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
       featured: true
     },
     {
@@ -32,6 +34,7 @@ const Projects = () => {
       longDescription: 'Created a comprehensive personal life management system that helps users build their ideal day through advanced workflow automation. Built using Langraph workflows and Langchain workflows for intelligent agent orchestration, integrated with Google Calendar. Features include intelligent friend recommendation based on communication patterns, automated social scheduling based on availability and weekly goals, and comprehensive life optimization tools powered by AI workflow engines.',
       technologies: ['Express', 'Electron', 'Google Calendar API', 'Workflow Automation', 'Langraph Workflows', 'Langchain Workflows'],
       imageUrl: '/lifeops.png',
+      videoEmbed: '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.youtube.com/embed/-xLXYTY4VxQ?si=tSp_4cTJr8bUXZ1N" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
       demoUrl: 'https://x.com/damonbodine/status/1940913440601919847',
       featured: true
     },
@@ -42,6 +45,7 @@ const Projects = () => {
       longDescription: 'Built a comprehensive real estate website designed to help agents save time through intelligent automation powered by Langchain workflows and GPT integration. Features include automated client onboarding workflows, AI-powered contract negotiation assistance using advanced language models, and automated inspection report analysis. The platform streamlines common real estate tasks and improves agent productivity through sophisticated AI workflow orchestration.',
       technologies: ['React', 'Node.js', 'AI Automation', 'Document Processing', 'Langchain Workflows', 'GPT'],
       imageUrl: '/api/placeholder/600/400',
+      gifUrl: '/onboarding.gif',
       featured: false
     },
     {
@@ -51,6 +55,7 @@ const Projects = () => {
       longDescription: 'Developed an engaging financial literacy game designed to teach students fundamental financial concepts through interactive 3D gameplay and real-time stock trading simulation. Built with Phaser 3D for immersive game environments and integrated with live Stock Trading APIs for authentic market data. Features include 3D game environments, simulated trading experiences with real market data, educational articles, and gamified learning modules that make financial education accessible and fun.',
       technologies: ['Phaser 3D', 'React', 'Next.js', 'Stock Trading APIs', 'Educational Content Management'],
       imageUrl: '/budgetroyale.png',
+      videoEmbed: '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.youtube.com/embed/hPiooiXfuh4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
       demoUrl: 'https://x.com/damonbodine/status/1947099366809907360',
       featured: false
     },
@@ -61,6 +66,7 @@ const Projects = () => {
       longDescription: 'Reinvented SuiteCRM, a legacy enterprise codebase with over 2 million lines of code, by building modern AI features specifically designed for small attorney offices. The project involved modernizing existing functionality while adding intelligent automation, document processing, and case management features tailored to legal practices.',
       technologies: ['PHP', 'JavaScript', 'AI Integration', 'Legacy System Modernization', 'Legal Tech'],
       imageUrl: '/suitecrm.png',
+      videoEmbed: '<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.youtube.com/embed/DjMU2fSUWDM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>',
       demoUrl: 'https://x.com/damonbodine/status/1949589504580522437',
       featured: false
     },
@@ -150,11 +156,21 @@ const Projects = () => {
                   onClick={() => setSelectedProject(project)}
                 >
                   <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
+                    {project.videoEmbed ? (
+                      <div dangerouslySetInnerHTML={{ __html: project.videoEmbed }} />
+                    ) : project.gifUrl ? (
+                      <img 
+                        src={project.gifUrl} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <img 
+                        src={project.imageUrl} 
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -200,11 +216,21 @@ const Projects = () => {
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={project.imageUrl} 
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
+                  {project.videoEmbed ? (
+                    <div dangerouslySetInnerHTML={{ __html: project.videoEmbed }} />
+                  ) : project.gifUrl ? (
+                    <img 
+                      src={project.gifUrl} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -255,11 +281,21 @@ const Projects = () => {
               </div>
               
               <div className="aspect-video overflow-hidden rounded-lg mb-6">
-                <img 
-                  src={selectedProject.imageUrl} 
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
+                {selectedProject.videoEmbed ? (
+                  <div dangerouslySetInnerHTML={{ __html: selectedProject.videoEmbed }} />
+                ) : selectedProject.gifUrl ? (
+                  <img 
+                    src={selectedProject.gifUrl} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img 
+                    src={selectedProject.imageUrl} 
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
               
               <p className="text-gray-700 mb-6 leading-relaxed">
