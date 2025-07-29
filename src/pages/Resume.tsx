@@ -134,6 +134,12 @@ const Resume = () => {
                       <p>March 2025 - May 2025</p>
                     </div>
                   </div>
+                  <ul className="text-gray-700 space-y-2 mt-4">
+                    <li>• Drove SMB technology sales for fast-growing startup, targeting small and medium businesses with innovative SaaS solutions across the US</li>
+                    <li>• Pioneered innovative prospecting methods including AI-powered lead scoring and multi-channel outreach sequences, increasing qualified lead conversion by 35%</li>
+                    <li>• Built strategic partnerships with product champions across the US</li>
+                    <li>• Leveraged technical background to conduct product demos and consultative sales, successfully positioning complex technology solutions to non-technical decision makers</li>
+                  </ul>
                 </div>
 
                 <div className="border-l-4 border-blue-200 pl-6">
