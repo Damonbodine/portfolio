@@ -1,8 +1,7 @@
 const Resume = () => {
   const handleDownloadPDF = () => {
-    // This would be replaced with actual PDF download functionality
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/Profile.pdf';
     link.download = 'Damon_Bodine_Resume.pdf';
     link.click();
   };
