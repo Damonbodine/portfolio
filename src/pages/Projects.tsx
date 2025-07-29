@@ -12,7 +12,7 @@ const Projects = () => {
       description: 'A Grammarly clone with voice coaching, editing, and AI agents',
       longDescription: 'Built a comprehensive writing assistant platform featuring a voice coaching agent and voice editing agent. The application helps users improve their writing through AI-powered suggestions, real-time voice feedback, and interactive coaching sessions. Includes advanced grammar checking, style recommendations, and personalized writing improvement plans.',
       technologies: ['React', 'Next.js', 'Node.js', 'Python', 'WebSockets'],
-      imageUrl: '/api/placeholder/600/400',
+      imageUrl: '/photos/wordwiseai.png',
       demoUrl: 'https://x.com/damonbodine/status/1936933655072653771',
       featured: true
     },
@@ -22,7 +22,7 @@ const Projects = () => {
       description: 'Mobile social network app with computer vision and fitness coaching',
       longDescription: 'Developed a comprehensive mobile application that combines social networking features similar to Snapchat with advanced computer vision technology. Features include a voice-powered fitness coach that provides real-time workout guidance, social sharing capabilities, and a robust social network for connecting with friends and fitness enthusiasts.',
       technologies: ['React Native', 'Computer Vision', 'Voice AI', 'Social Network APIs'],
-      imageUrl: '/api/placeholder/600/400',
+      imageUrl: '/photos/snapconnect.png',
       featured: true
     },
     {
@@ -31,7 +31,7 @@ const Projects = () => {
       description: 'Personal life operating system with workflow automation',
       longDescription: 'Created a comprehensive personal life management system that helps users build their ideal day through Wangchain workflows integrated with Google Calendar. Features include intelligent friend recommendation based on communication patterns, automated social scheduling based on availability and weekly goals, and comprehensive life optimization tools.',
       technologies: ['Express', 'Electron', 'Google Calendar API', 'Workflow Automation'],
-      imageUrl: '/api/placeholder/600/400',
+      imageUrl: '/photos/lifeops.png',
       demoUrl: 'https://x.com/damonbodine/status/1940913440601919847',
       featured: true
     },
@@ -50,7 +50,7 @@ const Projects = () => {
       description: 'Financial literacy game with mock trading and educational content',
       longDescription: 'Developed an engaging financial literacy game designed to teach students fundamental financial concepts through interactive gameplay and mock stock trading. Features include 3D game environments, simulated trading experiences, educational articles, and gamified learning modules that make financial education accessible and fun.',
       technologies: ['Phaser 3D', 'React', 'Next.js', 'Trading APIs', 'Educational Content Management'],
-      imageUrl: '/api/placeholder/600/400',
+      imageUrl: '/photos/budgetroyale.png',
       demoUrl: 'https://x.com/damonbodine/status/1947099366809907360',
       featured: false
     },
@@ -60,7 +60,7 @@ const Projects = () => {
       description: 'SuiteCRM reinvention with AI features for attorney offices',
       longDescription: 'Reinvented SuiteCRM, a legacy enterprise codebase with over 2 million lines of code, by building modern AI features specifically designed for small attorney offices. The project involved modernizing existing functionality while adding intelligent automation, document processing, and case management features tailored to legal practices.',
       technologies: ['PHP', 'JavaScript', 'AI Integration', 'Legacy System Modernization', 'Legal Tech'],
-      imageUrl: '/api/placeholder/600/400',
+      imageUrl: '/photos/suitecrm.png',
       demoUrl: 'https://x.com/damonbodine/status/1949589504580522437',
       featured: false
     },
@@ -70,7 +70,7 @@ const Projects = () => {
       description: 'Financial literacy app for rent negotiation with AI coaching',
       longDescription: 'Built a specialized financial literacy application designed to help renters negotiate with their landlords effectively. Features include an intelligent chatbot for guidance, a comprehensive vector database that analyzes rental patterns across the United States based on user location, and a voice coaching agent that helps users practice and simulate negotiation conversations.',
       technologies: ['React', 'Vector Database', 'Chatbot AI', 'Voice Coaching', 'Rental Market Analytics'],
-      imageUrl: '/api/placeholder/600/400',
+      imageUrl: '/photos/rentersmentor.png',
       featured: false
     }
   ];
@@ -149,15 +149,12 @@ const Projects = () => {
                   className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                      </div>
-                      <p className="text-blue-600 font-medium">Click to view details</p>
-                    </div>
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -202,12 +199,12 @@ const Projects = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <div className="w-12 h-12 bg-gray-400 rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 00-2 2v2a2 2 0 002 2m0 0h14m-14 0a2 2 0 002 2v2a2 2 0 01-2 2" />
-                    </svg>
-                  </div>
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -257,15 +254,12 @@ const Projects = () => {
                 </button>
               </div>
               
-              <div className="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg mb-6 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
-                  </div>
-                  <p className="text-blue-600 font-medium">{selectedProject.title}</p>
-                </div>
+              <div className="aspect-video overflow-hidden rounded-lg mb-6">
+                <img 
+                  src={selectedProject.imageUrl} 
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               <p className="text-gray-700 mb-6 leading-relaxed">
